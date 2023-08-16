@@ -1,4 +1,4 @@
-<h1>>Fianncial Management: Webapp</h1>
+<h1>Fianncial Management: Webapp</h1>
 
 <p>The Financial Management Tool introduces a comprehensive solution aimed at simplifying the often complex aspects of personal finance management. 
 By creating a user-friendly platform for expense tracking and periodic financial oversight, this tool empowers individuals to take control of 
