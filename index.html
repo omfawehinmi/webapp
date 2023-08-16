@@ -1,17 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Category Input</title>
+    <title>Expense Tracker</title>
 </head>
 <body>
-    <h1>Enter Categories</h1>
+    <h1>Specify Additional Account Names</h1>
+    <input type="text" id="accountInput" placeholder="Enter an account name">
+    <button onclick="addAccount()">Add Account</button>
+
+    <h2>Account Names:</h2>
+    <ul id="accountList"></ul>
+
+    <h1>Specify Additional Expense Types</h1>
+    <input type="text" id="expenseInput" placeholder="Enter an expense type">
+    <button onclick="addExpenseType()">Add Expense Type</button>
+
+    <h2>Expense Types:</h2>
+    <ul id="expenseList"></ul>
+
+    <h1>Specify Additional Categories</h1>
     <input type="text" id="categoryInput" placeholder="Enter a category">
     <button onclick="addCategory()">Add Category</button>
-    
+
     <h2>Categories:</h2>
     <ul id="categoryList"></ul>
 
     <script>
+        function addAccount() {
+            var accountInput = document.getElementById("accountInput");
+            var accountName = accountInput.value.trim();
+
+            if (accountName !== "") {
+                var accountList = document.getElementById("accountList");
+                var listItem = document.createElement("li");
+                listItem.textContent = accountName;
+                accountList.appendChild(listItem);
+                accountInput.value = "";
+            }
+        }
+
+        function addExpenseType() {
+            var expenseInput = document.getElementById("expenseInput");
+            var expenseType = expenseInput.value.trim();
+
+            if (expenseType !== "") {
+                var expenseList = document.getElementById("expenseList");
+                var listItem = document.createElement("li");
+                listItem.textContent = expenseType;
+                expenseList.appendChild(listItem);
+                expenseInput.value = "";
+            }
+        }
+
         function addCategory() {
             var categoryInput = document.getElementById("categoryInput");
             var categoryName = categoryInput.value.trim();
