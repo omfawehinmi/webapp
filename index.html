@@ -62,7 +62,38 @@
                 listItem.textContent = categoryName;
                 categoryList.appendChild(listItem);
                 categoryInput.value = "";
+
+                // Create a section for this category
+                var categorySection = document.createElement("div");
+                var categoryHeader = document.createElement("h3");
+                var categoryValueInput = document.createElement("input");
+                var categoryValueButton = document.createElement("button");
+
+                categoryHeader.textContent = categoryName + " Values";
+                categoryValueInput.setAttribute("type", "text");
+                categoryValueInput.setAttribute("placeholder", "Enter a value");
+                categoryValueButton.textContent = "Add Value";
+                categoryValueButton.onclick = function() {
+                    addCategoryValue(categoryName, categoryValueInput.value);
+                    categoryValueInput.value = "";
+                };
+
+                categorySection.appendChild(categoryHeader);
+                categorySection.appendChild(categoryValueInput);
+                categorySection.appendChild(categoryValueButton);
+
+                document.body.appendChild(categorySection);
             }
+        }
+
+        function addCategoryValue(categoryName, value) {
+            var categorySection = document.querySelector("div h3:contains('" + categoryName + " Values')");
+            var valueList = document.createElement("ul");
+            var valueListItem = document.createElement("li");
+            valueListItem.textContent = value;
+            valueList.appendChild(valueListItem);
+
+            categorySection.parentNode.insertBefore(valueList, categorySection.nextSibling);
         }
     </script>
 </body>
