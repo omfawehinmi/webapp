@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Input</title>
+</head>
+<body>
+    <h1>Enter Categories</h1>
+    <input type="text" id="categoryInput" placeholder="Enter a category">
+    <button onclick="addCategory()">Add Category</button>
+    
+    <h2>Categories:</h2>
+    <ul id="categoryList"></ul>
+
+    <script>
+        function addCategory() {
+            var categoryInput = document.getElementById("categoryInput");
+            var categoryName = categoryInput.value.trim();
+
+            if (categoryName !== "") {
+                var categoryList = document.getElementById("categoryList");
+                var listItem = document.createElement("li");
+                listItem.textContent = categoryName;
+                categoryList.appendChild(listItem);
+                categoryInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
